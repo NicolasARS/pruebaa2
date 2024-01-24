@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Secciones{% endblock %}
+
+{% block body %}
+
+<h1>Secciones</h1>
+<button><a href="{{ path('index') }}"><i class="fa fa-sign-out sr-icons"></i>Inicio</a></button>
+<h2>Lista de Secciones: <h2>
+{% if secciones %}   
+        {% for seccion in secciones %}
+    <ul>
+        <li><strong>Seccion #</strong>{{ seccion.id}}</li>
+        <li><strong>Nombre: </strong>{{ seccion.nombre}}</li>
+    </ul>
+    <hr>
+        {% endfor %}
+    {% else %}
+        <p>No se han encontrado secciones.</p>
+    {% endif %}
+
+<h2>Agrega una nueva seccion</h2>
+{{ form(form, {'attr': {'class':'form-horizontal'}}) }}
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ficha empleado{% endblock %}
+
+{% block body %}
+
+<h1>Empleado</h1>
+<button><a href="{{ path('index') }}"><i class="fa fa-sign-out sr-icons"></i>Inicio</a></button>
+<h2>Ficha del empleado: </h2>
+<ul>
+        <li><strong>Empleado #</strong>{{ empleado.id}}</li>
+        <li><strong>Nombre: </strong>{{ empleado.nombre}}</li>
+        <li><strong>Apellidos: </strong>{{ empleado.apellido}}</li>
+        <li><strong>Avatar: </strong><br>
+        <img src={{ asset('/images/empleados/' ~ empleado.foto) }} height="300px" width="300px"/></li>
+        <li><strong>Seccion: </strong>{{ empleado.seccion.nombre}}</li>
+</ul>
+
+{% endblock %}
