@@ -3,17 +3,10 @@
 {% block body %}
 <h1>Resultados de la busqueda</h1>
 <button><a href="{{ path('index') }}"><i class="fa fa-sign-out sr-icons"></i>Inicio</a></button>
-    {% for empleado in empleados %}
-    <ul>
-        <li><strong>Empleado #{{ empleado.id}}</strong></li>
-        <li><strong>Nombre: </strong>{{ empleado.nombre}}</li>
-        <li><strong>Apellidos: </strong>{{ empleado.apellido}}</li>
-        <li><strong>Avatar: </strong><br>
-        <img src={{ asset('/images/empleados/' ~ empleado.foto) }}/></li>
-        <li><strong>Seccion: </strong>{{ empleado.seccion.nombre}}</li>
-    </ul>
+{% for empleado in empleados %}
+    {{ include('partials/lista.html.twig') }}
     <hr>
     {% else %}
-        <p>Empleado no encontrado</p>
+    <p>Empleado no encontrado</p>
     {% endfor %}
 {% endblock %}
